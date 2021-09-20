@@ -4,15 +4,12 @@
 }
 
 body {
+    margin: 0;
     font-family: var(--font-family-sans-serif);
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-sans-serif);
-}
-
-.btn {
-    border-radius: 2px;
 }
 
 .header_wrapper {

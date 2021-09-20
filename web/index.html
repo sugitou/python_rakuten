@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/8bfb0fba3c.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./style.css">
-        <title>mynavi-scraping</title>
+        <title>rakuten-scraping</title>
     </head>
     <body>
         <div class="header_wrapper col-12">
@@ -23,23 +23,23 @@
         <div class="main_wrapper border pt-2 pb-2 ml-3 col-9">
             <div class="market_area" id="wrap01">
                 <div class="top d-flex align-items-end col-12">
-                    <form name='input_form'>
-                        <div>
-                            <h3>キーワード</h3>
-                            <input class="form-control" id="kw_search" type="text" placeholder="キーワードを入力してください。" name='input_kw' />
+                    <form name="input_form_01">
+                        <div class="d-flex">
+                            <p>キーワード</p>
+                            <input class="form-control" id="kw_search_01" type="text" placeholder="キーワードを入力してください。" name='input_kw' />
                         </div>
                         <div>
-                            <h3>ファイル名</h3>
-                            <input class="form-control" id="csv_name" type="text" placeholder="ファイル名を入力してください。" name='input_f' />
+                            <p>ファイル名</p>
+                            <input class="form-control" id="csv_name_01" type="text" placeholder="ファイル名を入力してください。" name='input_f' />
                         </div>
                         <div>
-                            <h3>フォルダ名</h3>
-                            <input class="form-control" id="box_name" type="text" placeholder="フォルダ名を入力してください。" name='input_d' />
+                            <p>フォルダ名</p>
+                            <input class="form-control" id="box_name_01" type="text" placeholder="フォルダ名を入力してください。" name='input_d' />
                         </div>
                     </form>
                 </div>
                 <div class = "middle col-12">
-                    <input class="btn btn-danger" type="button" value="検索" id="search" />
+                    <input class="btn btn-danger" type="button" value="楽天市場検索" id="market_search" />
                 </div>
                 <div class="bottom  col-12">
                     <textarea class="form-control com_log_area" id="com_name" ></textarea>
@@ -47,23 +47,23 @@
             </div>
             <div class="books_area" id="wrap02">
                 <div class="top d-flex align-items-end col-12">
-                    <form name='input_form'>
+                    <form name='input_form_02'>
                         <div>
                             <h3>キーワード</h3>
-                            <input class="form-control" id="kw_search" type="text" placeholder="キーワードを入力してください。" name='input_kw' />
+                            <input class="form-control" id="kw_search_02" type="text" placeholder="キーワードを入力してください。" name='input_kw' />
                         </div>
                         <div>
                             <h3>ファイル名</h3>
-                            <input class="form-control" id="csv_name" type="text" placeholder="ファイル名を入力してください。" name='input_f' />
+                            <input class="form-control" id="csv_name_02" type="text" placeholder="ファイル名を入力してください。" name='input_f' />
                         </div>
                         <div>
                             <h3>フォルダ名</h3>
-                            <input class="form-control" id="box_name" type="text" placeholder="フォルダ名を入力してください。" name='input_d' />
+                            <input class="form-control" id="box_name_02" type="text" placeholder="フォルダ名を入力してください。" name='input_d' />
                         </div>
                     </form>
                 </div>
                 <div class = "middle col-12">
-                    <input class="btn btn-danger" type="button" value="検索" id="search" />
+                    <input class="btn btn-danger" type="button" value="楽天ブックス検索" id="books_search" />
                 </div>
                 <div class="bottom  col-12">
                     <textarea class="form-control com_log_area" id="com_name" ></textarea>
@@ -71,23 +71,23 @@
             </div>
             <div class="travel_area" id="wrap03">
                 <div class="top d-flex align-items-end col-12">
-                    <form name='input_form'>
+                    <form name='input_form_03'>
                         <div>
                             <h3>キーワード</h3>
-                            <input class="form-control" id="kw_search" type="text" placeholder="キーワードを入力してください。" name='input_kw' />
+                            <input class="form-control" id="kw_search_03" type="text" placeholder="キーワードを入力してください。" name='input_kw' />
                         </div>
                         <div>
                             <h3>ファイル名</h3>
-                            <input class="form-control" id="csv_name" type="text" placeholder="ファイル名を入力してください。" name='input_f' />
+                            <input class="form-control" id="csv_name_03" type="text" placeholder="ファイル名を入力してください。" name='input_f' />
                         </div>
                         <div>
                             <h3>フォルダ名</h3>
-                            <input class="form-control" id="box_name" type="text" placeholder="フォルダ名を入力してください。" name='input_d' />
+                            <input class="form-control" id="box_name_03" type="text" placeholder="フォルダ名を入力してください。" name='input_d' />
                         </div>
                     </form>
                 </div>
                 <div class = "middle col-12">
-                    <input class="btn btn-danger" type="button" value="検索" id="search" />
+                    <input class="btn btn-danger" type="button" value="楽天トラベル検索" id="travel_search" />
                 </div>
                 <div class="bottom  col-12">
                     <textarea class="form-control com_log_area" id="com_name" ></textarea>

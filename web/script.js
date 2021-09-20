@@ -12,68 +12,94 @@ document.getElementById("wrap01").style.display ="block";
 document.getElementById("wrap02").style.display ="none";
 document.getElementById("wrap03").style.display ="none";
 // 変数定義
-const wrap01 = document.getElementById("wrap01").style.display;
-const wrap02 = document.getElementById("wrap02").style.display;
-const wrap03 = document.getElementById("wrap03").style.display;
+const wrap01 = document.getElementById("wrap01");
+const wrap02 = document.getElementById("wrap02");
+const wrap03 = document.getElementById("wrap03");
 // 切り替え関数
 function vis_invis_01(){
-    if(wrap01=="none"){
+    if(wrap01.style.display=="none"){
         // noneで非表示
-        wrap01 ="block";
-        wrap02 ="none";
-        wrap03 ="none";
+        wrap01.style.display ="block";
+        wrap02.style.display ="none";
+        wrap03.style.display ="none";
     }else{
-        wrap01 ="block";
-        wrap02 ="none";
-        wrap03 ="none";
+        wrap01.style.display ="block";
+        wrap02.style.display ="none";
+        wrap03.style.display ="none";
     }
 }
 function vis_invis_02(){
-    if(wrap02=="none"){
+    if(wrap02.style.display=="none"){
         // noneで非表示
-        wrap01 ="none";
-        wrap02 ="block";
-        wrap03 ="none";
+        wrap01.style.display ="none";
+        wrap02.style.display ="block";
+        wrap03.style.display ="none";
     }else{
-        wrap01 ="none";
-        wrap02 ="block";
-        wrap03 ="none";
+        wrap01.style.display ="none";
+        wrap02.style.display ="block";
+        wrap03.style.display ="none";
     }
 }
 function vis_invis_03(){
-    if(wrap03=="none"){
+    if(wrap03.style.display=="none"){
         // noneで非表示
-        wrap01 ="none";
-        wrap02 ="none";
-        wrap03 ="block";
+        wrap01.style.display ="none";
+        wrap02.style.display ="none";
+        wrap03.style.display ="block";
     }else{
-        wrap01 ="none";
-        wrap02 ="none";
-        wrap03 ="block";
+        wrap01.style.display ="none";
+        wrap02.style.display ="none";
+        wrap03.style.display ="block";
     }
 }
 
-let search = document.getElementById('search')
-search.addEventListener('click', () => {
-    if (input_form.input_kw.value == "") {
+let market_search = document.getElementById('market_search')
+market_search.addEventListener('click', () => {
+    if (input_form_01.input_kw.value == "") {
         alert("キーワードを入力してください");
         return false;
-    }else if(input_form.input_f.value == ""){
+    }else if(input_form_01.input_f.value == ""){
         alert("ファイル名を入力してください");
         return false;
-    }else if(input_form.input_d.value == ""){
+    }else if(input_form_01.input_d.value == ""){
         alert("フォルダ名を入力してください");
         return false;
     }else {
-        if (wrap01="block") {
-            rakuten_func(kw_search.value, csv_name.value, box_name.value, "market_search");
-            return true;
-        }else if (wrap02="block") {
-            rakuten_func(kw_search.value, csv_name.value, box_name.value, "books_search");
-            return true;
-        }else {
-            rakuten_func(kw_search.value, csv_name.value, box_name.value, "travel_search");
-            return true;
-        }
+        rakuten_func(kw_search_01.value, csv_name_01.value, box_name_01.value, "market_search");
+        return true;
+    }
+})
+
+let books_search = document.getElementById('books_search')
+books_search.addEventListener('click', () => {
+    if (input_form_02.input_kw.value == "") {
+        alert("キーワードを入力してください");
+        return false;
+    }else if(input_form_02.input_f.value == ""){
+        alert("ファイル名を入力してください");
+        return false;
+    }else if(input_form_02.input_d.value == ""){
+        alert("フォルダ名を入力してください");
+        return false;
+    }else {
+        rakuten_func(kw_search_02.value, csv_name_02.value, box_name_02.value, "books_search");
+        return true;
+    }
+})
+
+let travel_search = document.getElementById('travel_search')
+travel_search.addEventListener('click', () => {
+    if (input_form_03.input_kw.value == "") {
+        alert("キーワードを入力してください");
+        return false;
+    }else if(input_form_03.input_f.value == ""){
+        alert("ファイル名を入力してください");
+        return false;
+    }else if(input_form_03.input_d.value == ""){
+        alert("フォルダ名を入力してください");
+        return false;
+    }else {
+        rakuten_func(kw_search_03.value, csv_name_03.value, box_name_03.value, "travel_search");
+        return true;
     }
 })
