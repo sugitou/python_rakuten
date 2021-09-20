@@ -6,13 +6,11 @@ import pandas as pd
 import pprint
 import analysis
 
-# from spreadsheet_manager import SpreadsheetManager
 from dotenv import load_dotenv
 # .envファイルの内容を読み込みます
 load_dotenv()
 
 RAKUTEN_API_ID = int(os.environ["RAKUTEN_API_ID"])
-# SPREADSHEET_ID = os.environ["SPREADSHEET_ID"]
 
 
 def set_url(select_url):
@@ -44,34 +42,43 @@ def get_api(url, params):
 def extract(resp, api_flg):
     alys = analysis.Analysis(resp)
     if api_flg == 1:
-        item_list = alys.extract_market()
+        list_key_head = alys.extract_market()
     elif api_flg == 2:
-        item_list = alys.extract_book()
+        list_key_head = alys.extract_book()
     else:
-        item_list = alys.extract_travel()
+        list_key_head = alys.extract_travel()
 
-    return item_list
+    return list_key_head
 
 
-def main():
-    keyword = input("検索ワードを入力してください。 >>> ")
+def crdir(fdname):
+    new_dir = f'{os.getcwd()}\\{fdname}'
+    # 指定ディレクトリ作成
+    if not os.path.exists(new_dir):
+        os.mkdir(new_dir)
+    return new_dir
+
+
+def main(skw, csv_name, box_name):
     # TODO
-    url, api_flg = set_url('book_search')
-    params = set_param(keyword)
+    url, api_flg = set_url('travel_search')
+    params = set_param(skw)
     resp = get_api(url, params)
     # pprint.pprint(resp)
 
-    items = extract(resp, api_flg)
-    pprint.pprint(items)
+    items, head_key, header = extract(resp, api_flg)
     # データフレームを作成
-    # items_df = pd.DataFrame(items)
-    # # ヘッダー変更
-    # items_df.columns = ['ランキング', '商品名', '商品価格', '説明文', '商品URL', 'ジャンルID']
-    # items_df.index = np.arange(1, 31)
-    # # csvに出力
-    # items_df = items_df.to_csv('./rakuten_ranking.csv',
-    #                             columns=['ランキング', '商品名', '商品価格', '説明文', '商品URL', 'ジャンルID'])
+    items_df = pd.DataFrame(items)
+    # csvに出力
+    csv_path = f'{crdir(box_name)}/{csv_name}.csv'
+    create_df = items_df.to_csv(csv_path, header=False, index=False, columns=head_key)
+    # ヘッダー書き換え
+    change_head_df = pd.read_csv(csv_path, encoding="utf-8_sig", names=header)
+    recreate_df = change_head_df.to_csv(csv_path)
 
 
 if __name__ == "__main__":
-   main()
+    search_keyword = input("検索ワードを入力してください。 >>> ")
+    file_name = input("ファイル名を入力してください。 >>> ")
+    folder_name = input("フォルダ名を入力してください。 >>> ")
+    main(search_keyword, file_name, folder_name)

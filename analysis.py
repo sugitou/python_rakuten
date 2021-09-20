@@ -4,8 +4,8 @@ class Analysis:
 
 
     def extract_market(self):
-        # for文を回してdictを作る
-        item_key = ['title', 'itemPrice', 'itemCaption', 'itemUrl', 'genreId']
+        item_key = ['itemName', 'itemPrice', 'itemCaption', 'itemUrl', 'genreId']
+        item_head = ['商品名', '商品価格', '説明文', '商品URL', 'ジャンルID']
         item_list = []
         for i in range(0, len(self.rakuten_data['Items'])):
             tmp_item = {}
@@ -15,12 +15,12 @@ class Analysis:
                     tmp_item[key] = value
             item_list.append(tmp_item.copy())
     
-        return item_list
+        return item_list, item_key, item_head
 
 
     def extract_book(self):
-        # for文を回してdictを作る
-        item_key = ['itemName', 'itemPrice', 'itemCaption', 'itemUrl', 'booksGenreId']
+        item_key = ['title', 'itemPrice', 'itemCaption', 'itemUrl', 'booksGenreId']
+        item_head = ['商品名', '商品価格', '説明文', '商品URL', 'ブックジャンルID']
         item_list = []
         for i in range(0, len(self.rakuten_data['Items'])):
             tmp_item = {}
@@ -30,12 +30,12 @@ class Analysis:
                     tmp_item[key] = value
             item_list.append(tmp_item.copy())
     
-        return item_list
+        return item_list, item_key, item_head
 
 
     def extract_travel(self):
-        # for文を回してdictを作る
         hotel_key = ['hotelName', 'hotelMinCharge', 'hotelSpecial', 'hotelInformationUrl', 'hotelNo']
+        hotel_head = ['ホテル名', '最低宿泊価格', 'ホテルの特色', 'メインページURL', 'ホテルID']
         hotel_list = []
         for i in range(0, len(self.rakuten_data['hotels'])):
             tmp_hotel = {}
@@ -45,4 +45,4 @@ class Analysis:
                     tmp_hotel[key] = value
             hotel_list.append(tmp_hotel.copy())
     
-        return hotel_list
+        return hotel_list, hotel_key, hotel_head
