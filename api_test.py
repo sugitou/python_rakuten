@@ -1,8 +1,7 @@
-from api import *
+from rakuten_api import *
 
 
 RAKUTEN_API_ID = int(os.environ["RAKUTEN_API_ID"])
-SPREADSHEET_ID = os.environ["SPREADSHEET_ID"]
 
 def test_set_param():
     test_key = "鬼滅"

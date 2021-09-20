@@ -59,9 +59,9 @@ def crdir(fdname):
     return new_dir
 
 
-def main(skw, csv_name, box_name):
+def main(skw, csv_name, box_name, api):
     # TODO
-    url, api_flg = set_url('travel_search')
+    url, api_flg = set_url(api)
     params = set_param(skw)
     resp = get_api(url, params)
     # pprint.pprint(resp)
@@ -77,8 +77,9 @@ def main(skw, csv_name, box_name):
     recreate_df = change_head_df.to_csv(csv_path)
 
 
-if __name__ == "__main__":
-    search_keyword = input("検索ワードを入力してください。 >>> ")
-    file_name = input("ファイル名を入力してください。 >>> ")
-    folder_name = input("フォルダ名を入力してください。 >>> ")
-    main(search_keyword, file_name, folder_name)
+# if __name__ == "__main__":
+#     search_keyword = input("検索ワードを入力してください。 >>> ")
+#     file_name = input("ファイル名を入力してください。 >>> ")
+#     folder_name = input("フォルダ名を入力してください。 >>> ")
+#     api = input("フォルダ名を入力してください。 >>> ")
+#     main(search_keyword, file_name, folder_name, api)

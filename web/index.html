@@ -13,21 +13,85 @@
     </head>
     <body>
         <div class="header_wrapper col-12">
-            <h2 class="title pt-3 pb-3">マイナビ情報収集</h2>
+            <h2 class="title pt-3 pb-3">RAKUTENscraping</h2>
+            <div class = "tools">
+                <input class="btn btn-danger" type="button" value="楽天市場" onclick="vis_invis_01()" />
+                <input class="btn btn-danger" type="button" value="楽天ブックス" onclick="vis_invis_02()" />
+                <input class="btn btn-danger" type="button" value="楽天トラベル" onclick="vis_invis_03()" />
+            </div>
         </div>
         <div class="main_wrapper border pt-2 pb-2 ml-3 col-9">
-            <div class="top d-flex align-items-end col-12">
-                <form name='input_form'>
-                    <input class="form-control" id="kw_search" type="text" placeholder="キーワードを入力してください。" name='input_kw' />
-                    <input class="form-control" id="csv_name" type="text" placeholder="ファイル名を入力してください。" name='input_f' />
-                    <input class="form-control" id="box_name" type="text" placeholder="フォルダ名を入力してください。" name='input_d' />
-                </form>
+            <div class="market_area" id="wrap01">
+                <div class="top d-flex align-items-end col-12">
+                    <form name='input_form'>
+                        <div>
+                            <h3>キーワード</h3>
+                            <input class="form-control" id="kw_search" type="text" placeholder="キーワードを入力してください。" name='input_kw' />
+                        </div>
+                        <div>
+                            <h3>ファイル名</h3>
+                            <input class="form-control" id="csv_name" type="text" placeholder="ファイル名を入力してください。" name='input_f' />
+                        </div>
+                        <div>
+                            <h3>フォルダ名</h3>
+                            <input class="form-control" id="box_name" type="text" placeholder="フォルダ名を入力してください。" name='input_d' />
+                        </div>
+                    </form>
+                </div>
+                <div class = "middle col-12">
+                    <input class="btn btn-danger" type="button" value="検索" id="search" />
+                </div>
+                <div class="bottom  col-12">
+                    <textarea class="form-control com_log_area" id="com_name" ></textarea>
+                </div>
             </div>
-            <div class = "middle col-12">
-                <input class="btn btn-danger" type="button" value="検索" id="search" />
+            <div class="books_area" id="wrap02">
+                <div class="top d-flex align-items-end col-12">
+                    <form name='input_form'>
+                        <div>
+                            <h3>キーワード</h3>
+                            <input class="form-control" id="kw_search" type="text" placeholder="キーワードを入力してください。" name='input_kw' />
+                        </div>
+                        <div>
+                            <h3>ファイル名</h3>
+                            <input class="form-control" id="csv_name" type="text" placeholder="ファイル名を入力してください。" name='input_f' />
+                        </div>
+                        <div>
+                            <h3>フォルダ名</h3>
+                            <input class="form-control" id="box_name" type="text" placeholder="フォルダ名を入力してください。" name='input_d' />
+                        </div>
+                    </form>
+                </div>
+                <div class = "middle col-12">
+                    <input class="btn btn-danger" type="button" value="検索" id="search" />
+                </div>
+                <div class="bottom  col-12">
+                    <textarea class="form-control com_log_area" id="com_name" ></textarea>
+                </div>
             </div>
-            <div class="bottom  col-12">
-                <textarea class="form-control com_log_area" id="com_name" ></textarea>
+            <div class="travel_area" id="wrap03">
+                <div class="top d-flex align-items-end col-12">
+                    <form name='input_form'>
+                        <div>
+                            <h3>キーワード</h3>
+                            <input class="form-control" id="kw_search" type="text" placeholder="キーワードを入力してください。" name='input_kw' />
+                        </div>
+                        <div>
+                            <h3>ファイル名</h3>
+                            <input class="form-control" id="csv_name" type="text" placeholder="ファイル名を入力してください。" name='input_f' />
+                        </div>
+                        <div>
+                            <h3>フォルダ名</h3>
+                            <input class="form-control" id="box_name" type="text" placeholder="フォルダ名を入力してください。" name='input_d' />
+                        </div>
+                    </form>
+                </div>
+                <div class = "middle col-12">
+                    <input class="btn btn-danger" type="button" value="検索" id="search" />
+                </div>
+                <div class="bottom  col-12">
+                    <textarea class="form-control com_log_area" id="com_name" ></textarea>
+                </div>
             </div>
         </div>
         <script type="text/javascript" src="./eel.js"></script>
