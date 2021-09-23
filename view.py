@@ -5,7 +5,7 @@ import rakuten_api
 
 app_name="web"
 end_point="index.html"
-size=(600,700)
+size=(650,750)
 
 @ eel.expose
 def rakuten_system(kw_search, csv_name, box_name, select_api):

@@ -17,7 +17,7 @@ def set_url(select_url):
     if select_url == 'market_search':
         url = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706'
         api_flg = 1
-    elif select_url == 'book_search':
+    elif select_url == 'books_search':
         url = 'https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404'
         api_flg = 2
     else:
@@ -42,13 +42,13 @@ def get_api(url, params):
 def extract(resp, api_flg):
     alys = analysis.Analysis(resp)
     if api_flg == 1:
-        list_key_head = alys.extract_market()
+        list_key_head_name = alys.extract_market()
     elif api_flg == 2:
-        list_key_head = alys.extract_book()
+        list_key_head_name = alys.extract_book()
     else:
-        list_key_head = alys.extract_travel()
+        list_key_head_name = alys.extract_travel()
 
-    return list_key_head
+    return list_key_head_name
 
 
 def crdir(fdname):
@@ -66,7 +66,7 @@ def main(skw, csv_name, box_name, api):
     resp = get_api(url, params)
     # pprint.pprint(resp)
 
-    items, head_key, header = extract(resp, api_flg)
+    items, head_key, header, name = extract(resp, api_flg)
     # データフレームを作成
     items_df = pd.DataFrame(items)
     # csvに出力
@@ -76,10 +76,4 @@ def main(skw, csv_name, box_name, api):
     change_head_df = pd.read_csv(csv_path, encoding="utf-8_sig", names=header)
     recreate_df = change_head_df.to_csv(csv_path)
 
-
-# if __name__ == "__main__":
-#     search_keyword = input("検索ワードを入力してください。 >>> ")
-#     file_name = input("ファイル名を入力してください。 >>> ")
-#     folder_name = input("フォルダ名を入力してください。 >>> ")
-#     api = input("フォルダ名を入力してください。 >>> ")
-#     main(search_keyword, file_name, folder_name, api)
+    return name

@@ -14,7 +14,7 @@ def test_get_api():
         "keyword" : "鬼滅",
         "applicationId" : RAKUTEN_API_ID,
     }
-    url = 'https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628'
+    url = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706'
     res = get_api(url, param)
 
     assert len(res['Items']) >= 1

@@ -1,9 +1,21 @@
 // rakutenAPI関数
 async function rakuten_func(kw_search, csv_name, box_name, select_api) {
     let val = await eel.rakuten_system(kw_search, csv_name, box_name, select_api)();
-    for (let i = 0; i < val.length; i++) {
-        let num = i + 1
-        document.getElementById('com_name').value += "【" + num + "件目】" + val[i] + "\n";
+    if (select_api == "market_search") {
+        for (let i = 0; i < val.length; i++) {
+            let num = i + 1
+            document.getElementById('item_name').value += "【" + num + "件目】" + val[i] + "\n";
+        }
+    }else if (select_api == "books_search") {
+        for (let i = 0; i < val.length; i++) {
+            let num = i + 1
+            document.getElementById('book_name').value += "【" + num + "件目】" + val[i] + "\n";
+        }
+    }else {
+        for (let i = 0; i < val.length; i++) {
+            let num = i + 1
+            document.getElementById('hotel_name').value += "【" + num + "件目】" + val[i] + "\n";
+        }
     }
 }
 
